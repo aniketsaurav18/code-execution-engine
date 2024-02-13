@@ -1,0 +1,330 @@
+:root {
+  --gradient1: linear-gradient(
+    49deg,
+    #fef4ff,
+    #e5ecee,
+    #e5ecee,
+    #c3ddf3,
+    #acc7f6,
+    #a1b9f9,
+    #d6c3ec,
+    #e1dffc,
+    #dadbfc,
+    #caccf4,
+    #cdacde
+  );
+  --gradient2: linear-gradient(
+    119deg,
+    cyan,
+    #52ab93,
+    #d3a450,
+    #a15090,
+    #c6388e
+  );
+  --gradient3: linear-gradient(49deg, #ab4da3, #52ab93, #d3a450);
+  --gradient4: linear-gradient(119deg, #52ab93, #d3a450, #a15090);
+  --app-header-gradient: linear-gradient(45deg, #fcea41, #f048c6);
+  --bluish: #3a4f7a;
+  --darkish: #2b3a55;
+  --visual-studio-light: #ffffff;
+  --visual-studio-dark: #1e1e1e;
+  --light-yellow: #f6f6c9;
+  --yellowish: #ffbf00;
+  --sky: #52ab93;
+  --coral: #e56e67;
+  --light-pink: #fea1bf;
+  --light-green: #86c8bc;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+.App-dark {
+  overflow: hidden;
+  text-align: left;
+  background-color: white;
+  /* background-color: red; */
+  /* height: auto; */
+  margin-top: 0%;
+}
+
+.App-light {
+  overflow: hidden;
+  text-align: left;
+  /* background-color: var(--visual-studio-light); */
+  height: 100vh;
+  margin-top: 0%;
+}
+
+.editor {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  width: 60%;
+  height: 90%;
+  margin-left: 10px;
+  /* background-color: blue; */
+}
+
+.std-input-output {
+  overflow: hidden;
+  /* background-color: var(--bluish); */
+  background-color: rgb(255, 255, 255);
+  /* display: inline-block; */
+  /* position: absolute; */
+  text-align: initial;
+  margin-right: 50px;
+  margin-left: 20px;
+  width: 40%;
+}
+
+.std-input {
+  overflow: hidden;
+  width: 37vw;
+  height: 40vh;
+  margin-bottom: 2px;
+}
+.std-input h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.std-output {
+  overflow: hidden;
+  width: 37vw;
+  height: 40vh;
+}
+
+.std-output h3 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the header with a grey background and some padding */
+.header-dark {
+  overflow: hidden;
+  /* background-color: var(--visual-studio-dark); */
+  /* padding: 1.5vh 1vh 1vh 1vh; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.header-light {
+  overflow: hidden;
+  /* background-color: var(--visual-studio-light); */
+  /* padding: 1.5vh 1vh 1vh 1vh; */
+}
+
+.app-name-dark {
+  background-image: var(--gradient2);
+  background-clip: text;
+  color: transparent;
+  background-size: 200%;
+  animation: bg-animation 4s infinite alternate;
+  display: inline;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-left: 2%;
+}
+
+.app-name-light {
+  background-image: var(--gradient2);
+  background-clip: text;
+  color: transparent;
+  background-size: 200%;
+  animation: bg-animation 5s infinite alternate;
+  display: inline;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-left: 2%;
+}
+
+select {
+  font-weight: 600;
+  font-size: 15px;
+  background-color: white;
+  /* border: 2px black; */
+  /* color: black; */
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px 1px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.secondary-nav-items {
+  /* background-color: red; */
+  width: 100vw;
+  padding-left: 2rem;
+  display: table;
+  margin: 0 auto;
+  margin-bottom: 2vh;
+}
+
+.nav-right-options {
+  display: flex;
+  float: right;
+}
+
+.main-hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 90vh;
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+  .main-hero {
+    height: 1200px;
+    flex-direction: column;
+  }
+  .editor {
+    width: 90%;
+  }
+  .std-input-output {
+    width: 90%;
+  }
+  .std-input {
+    width: 100%;
+  }
+  .std-output {
+    width: 100%;
+  }
+  .App-dark {
+    height: auto;
+  }
+}
+
+.btn {
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  /* color: var(--light-yellow); */
+  padding: 6px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px 10px;
+  cursor: pointer;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.language-button-dark {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  /* background-color: var(--visual-studio-dark); */
+}
+
+.language-button-light {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background-color: var(--visual-studio-light);
+}
+
+.run-icon {
+  /* background-color: var(--yellowish); */
+  color: black;
+}
+.run-btn {
+  background-color: rgb(215, 217, 242);
+  color: black;
+  margin-left: 10px;
+}
+
+.run-btn:hover {
+  background-color: var(--coral);
+  color: black;
+}
+
+.run-btn:hover .run-icon {
+  background-color: var(--coral);
+  color: black;
+}
+
+.nav-icons {
+  display: inline;
+  margin-right: 3vw;
+  margin-top: 0.8vh;
+  cursor: pointer;
+}
+
+/* Tutorial Icon styling begins */
+.tutorial-btn-dark {
+  background-color: var(--visual-studio-dark);
+}
+.tutorial-btn-light {
+  background-color: var(--visual-studio-light);
+}
+.tutorial-icon {
+  background-image: var(--gradient2);
+  background-clip: text;
+  color: transparent;
+  background-size: 200%;
+  animation: bg-animation 3s infinite alternate;
+}
+.tutorial-icon:hover {
+  color: #c6388e;
+}
+/* Tutorial Icon styling ends */
+
+/* Theme Icon styling begins */
+.theme-icon-light {
+  color: #fff;
+  filter: drop-shadow(0 0 5px lime);
+}
+.theme-icon-light:hover {
+  color: var(--light-yellow);
+}
+.theme-icon-dark {
+  color: rgb(61, 61, 61);
+  filter: drop-shadow(0 0 5px black);
+}
+.theme-icon-dark:hover {
+  color: var(--darkish);
+}
+
+.image {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  position: relative;
+  background-size: contain;
+  margin: 0 0rem;
+  vertical-align: middle;
+  padding-right: 0;
+}
+
+.logo-btn {
+  margin-left: 0vw;
+  background: none;
+  padding: 0 0;
+}
+
+option {
+  background-color: #a1b9f9;
+  font-weight: 500;
+  border-radius: 8px;
+}
