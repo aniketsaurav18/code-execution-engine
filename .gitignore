@@ -111,6 +111,7 @@ dist
 
 # Serverless directories
 .serverless/
+**/serverless.yml
 
 # FuseBox cache
 .fusebox/
