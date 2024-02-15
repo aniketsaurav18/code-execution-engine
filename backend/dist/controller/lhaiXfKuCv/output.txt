@@ -1,4 +1,0 @@
-Enter the number of elements (n): Enter 3 numbers:
-Square of 1 is: 1
-Square of 2 is: 4
-Square of 3 is: 9

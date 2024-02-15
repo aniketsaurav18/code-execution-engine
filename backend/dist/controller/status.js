@@ -14,6 +14,7 @@ const redis_1 = require("../utils/redis");
 const statusController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const submission_id = req.params.submission_id;
     const result = yield (0, redis_1.getData)(submission_id);
+    console.log(result);
     res.status(200).json(result);
 });
 exports.statusController = statusController;

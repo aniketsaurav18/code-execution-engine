@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express"
+import serverless from 'serverless-http';
 import dotenv from "dotenv";
 dotenv.config();
 import bodyParser from "body-parser";
@@ -25,4 +26,4 @@ const server = app.listen(port, () => {
   console.log("Server is running on port ", port);
 });
 
-module.exports = app;
+export const handler = serverless(app);
