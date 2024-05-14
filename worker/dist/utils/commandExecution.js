@@ -17,6 +17,7 @@ const util_1 = __importDefault(require("util"));
 const executeCommand = util_1.default.promisify(require("child_process").exec);
 const executeCommandWithTimeout = (command, timeoutlimit) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        console.log("executing command..");
         const { stdout, stderr } = yield executeCommand(command);
         return { stdout, stderr };
     }

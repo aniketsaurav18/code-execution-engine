@@ -8,11 +8,8 @@ interface Result {
 
 export const executeCommandWithTimeout = async (command: string, timeoutlimit: number): Promise<Result | undefined> => {
     try {
+        console.log("executing command..")
         const { stdout, stderr } = await executeCommand(command);
-
-        // console.log('Standard Output:', stdout);
-        // console.error('Standard Error:', stderr);
-
         return { stdout, stderr };
     } catch (error: any) {
         if (error.stderr) {

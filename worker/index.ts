@@ -24,6 +24,7 @@ export const runner = async () => {
         console.log("Consumer waiting for message to arrive");
         channel.consume(q.queue, async (msg) => {
             if (msg) {
+                channel.ack(msg);
                 const consumedData = JSON.parse(Buffer.from(msg.content).toString());
                 // console.log("consumed data ...................")
                 // console.log(consumedData);
@@ -32,7 +33,7 @@ export const runner = async () => {
                 const result = await execute(consumedData);
 
                 // await setData(`output:${consumedData.id}`, result)
-                channel.ack(msg);
+                
             }
         });
 

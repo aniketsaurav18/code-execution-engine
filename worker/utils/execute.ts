@@ -24,19 +24,18 @@ export const execute = async (data: Data) => {
         // const templateDir = path.join(__dirname, "..", "templates", "entrypoint-template.sh");
         await fs.promises.mkdir(dir);
         if (data.src !== "") {
-            writeToFile(codeFilePath, data.src);
+            await writeToFile(codeFilePath, data.src);
         } else {
             throw new Error("source code not found");
         }
-
-        writeToFile(inputFilePath, data.input);
+        await writeToFile(inputFilePath, data.input);
 
         const executionPath = path.join(__dirname, "..", "shared");
         console.log(executionPath);
         const containerName = getContainerName(data.lang);
         // const executionCommand = getCommandFunction[data.lang](data.lang, data.id);
 
-        const command = `docker run --rm -e ID=${data.id} -e memoryLimit=${executionVariables.memoryLimit} -e timeLimit=${executionVariables.timeLimit} -v ${executionPath}:/usr/${extensionName[data.lang]}/shared ${containerName}`;
+        const command = `docker run -e ID=${data.id} -e memoryLimit=${executionVariables.memoryLimit} -e timeLimit=${executionVariables.timeLimit} -v ${executionPath}:/usr/${extensionName[data.lang]}/shared ${containerName}`;
 
         const result = await executeCommandWithTimeout(command, 5);
         console.log("container spinned..");

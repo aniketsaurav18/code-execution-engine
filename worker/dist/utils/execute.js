@@ -27,16 +27,16 @@ const execute = (data) => __awaiter(void 0, void 0, void 0, function* () {
         const dir = path_1.default.join(__dirname, "..", "shared", `${data.id}`);
         yield fs_1.default.promises.mkdir(dir);
         if (data.src !== "") {
-            (0, fileManager_1.writeToFile)(codeFilePath, data.src);
+            yield (0, fileManager_1.writeToFile)(codeFilePath, data.src);
         }
         else {
             throw new Error("source code not found");
         }
-        (0, fileManager_1.writeToFile)(inputFilePath, data.input);
+        yield (0, fileManager_1.writeToFile)(inputFilePath, data.input);
         const executionPath = path_1.default.join(__dirname, "..", "shared");
         console.log(executionPath);
         const containerName = (0, utils_1.getContainerName)(data.lang);
-        const command = `docker run --rm -e ID=${data.id} -e memoryLimit=${config_1.executionVariables.memoryLimit} -e timeLimit=${config_1.executionVariables.timeLimit} -v ${executionPath}:/usr/${config_1.extensionName[data.lang]}/shared ${containerName}`;
+        const command = `docker run -e ID=${data.id} -e memoryLimit=${config_1.executionVariables.memoryLimit} -e timeLimit=${config_1.executionVariables.timeLimit} -v ${executionPath}:/usr/${config_1.extensionName[data.lang]}/shared ${containerName}`;
         const result = yield (0, commandExecution_1.executeCommandWithTimeout)(command, 5);
         console.log("container spinned..");
         console.log(result);

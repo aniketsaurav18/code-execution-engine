@@ -35,15 +35,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteFile = exports.writeToFile = void 0;
 const fs = __importStar(require("fs"));
 const writeToFile = (filePath, content) => __awaiter(void 0, void 0, void 0, function* () {
-    fs.writeFile(filePath, content, (err) => {
-        if (err) {
-            console.error("Error writing to the file:", err);
-            throw err;
-        }
-        else {
-            console.log("content has been written to the file successfully.");
-        }
-    });
+    try {
+        const w = yield fs.promises.writeFile(filePath, content);
+        console.log(w);
+        console.log("File written successfully");
+    }
+    catch (e) {
+        console.log("Error writing file: ", e);
+    }
 });
 exports.writeToFile = writeToFile;
 const deleteFile = (directoryPath) => __awaiter(void 0, void 0, void 0, function* () {

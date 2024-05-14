@@ -26,9 +26,9 @@ const runner = () => __awaiter(void 0, void 0, void 0, function* () {
         console.log("Consumer waiting for message to arrive");
         channel.consume(q.queue, (msg) => __awaiter(void 0, void 0, void 0, function* () {
             if (msg) {
+                channel.ack(msg);
                 const consumedData = JSON.parse(Buffer.from(msg.content).toString());
                 const result = yield (0, execute_js_1.execute)(consumedData);
-                channel.ack(msg);
             }
         }));
     }

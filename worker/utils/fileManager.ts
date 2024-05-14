@@ -1,14 +1,14 @@
+import { promises } from 'dns';
 import * as fs from 'fs';
 
-export const writeToFile = async (filePath: string, content: string) => {
-    fs.writeFile(filePath, content, (err) => {
-        if (err) {
-            console.error("Error writing to the file:", err);
-            throw err;
-        } else {
-            console.log("content has been written to the file successfully.");
-        }
-    });
+export const writeToFile = async (filePath: string, content: string):Promise<void> => {
+    try{
+        const w = await fs.promises.writeFile(filePath, content);
+        console.log(w);
+        console.log("File written successfully");
+    }catch(e){
+        console.log("Error writing file: ", e);
+    }
 }
 
 export const deleteFile = async (directoryPath: string) => {

@@ -11,12 +11,13 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static("public"));
 
 app.use("/api/submit", submitRouter);
 app.use("/api/status", statusRouter);
 
 // Health Check
-app.get("/", (req: Request, res: Response) => {
+app.get("/health-check", (req: Request, res: Response) => {
   res.status(200).send("Hello World");
 });
 

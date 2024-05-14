@@ -75,8 +75,8 @@ class RabbitMQConsumer {
         });
     }
     sendMessage(message) {
-        var _a;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a;
             try {
                 (_a = this.channel) === null || _a === void 0 ? void 0 : _a.publish(this.rabbitmqConfig.exchangeName, this.rabbitmqConfig.bindingKey, Buffer.from(JSON.stringify(message)));
                 console.log("Message sent successfully:", message);

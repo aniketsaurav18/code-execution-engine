@@ -16,9 +16,10 @@ const app = (0, express_1.default)();
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.use(body_parser_1.default.json());
 app.use((0, cors_1.default)());
+app.use(express_1.default.static("public"));
 app.use("/api/submit", submit_js_1.default);
 app.use("/api/status", status_js_1.default);
-app.get("/", (req, res) => {
+app.get("/health-check", (req, res) => {
     res.status(200).send("Hello World");
 });
 const port = process.env.PORT || 7000;

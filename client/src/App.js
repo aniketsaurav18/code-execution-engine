@@ -49,7 +49,7 @@ function App() {
       //   setJobDetails(null);
       setOutput(`Code Execution Status: Running`);
       const { data } = await axios.post(
-        `${process.env.REACT_APP_REQUEST_URL}/submit`,
+        `${process.env.REACT_APP_REQUEST_URL? process.env.REACT_APP_REQUEST_URL : ""}api/submit`,
         payload
       );
       console.log(data);
@@ -67,7 +67,7 @@ function App() {
 
   const checkStatus = async (submission_id) => {
     const { data } = await axios.get(
-      `${process.env.REACT_APP_REQUEST_URL}/status/${submission_id}`
+      `${process.env.REACT_APP_REQUEST_URL? process.env.REACT_APP_REQUEST_URL : ""}api/status/${submission_id}`
     );
     if (data.status === "queued") {
       setTimeout(() => {
@@ -123,8 +123,6 @@ function App() {
       <div className="main-hero">
         <div className="editor">
           <Editor
-            height="100%"
-            width="100%"
             theme="vs-dark"
             defaultLanguage={language}
             defaultValue={code}
