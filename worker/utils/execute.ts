@@ -35,7 +35,7 @@ export const execute = async (data: Data) => {
         const containerName = getContainerName(data.lang);
         // const executionCommand = getCommandFunction[data.lang](data.lang, data.id);
 
-        const command = `docker run -e ID=${data.id} -e memoryLimit=${executionVariables.memoryLimit} -e timeLimit=${executionVariables.timeLimit} -v ${executionPath}:/usr/${extensionName[data.lang]}/shared ${containerName}`;
+        const command = `docker run --rm -e ID=${data.id} -e memoryLimit=${executionVariables.memoryLimit} -e timeLimit=${executionVariables.timeLimit} -v ${executionPath}:/usr/${extensionName[data.lang]}/shared ${containerName}`;
 
         const result = await executeCommandWithTimeout(command, 5);
         console.log("container spinned..");
